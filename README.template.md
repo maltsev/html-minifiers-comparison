@@ -4,10 +4,9 @@
 [htmlnano]: https://www.npmjs.com/package/nano
 
 | Website | Source (KB) | [html-minifier] | [htmlnano] |
---------------------------------------------------------
+|---------|------------:|----------------:|-----------:|
 {{#each stats}}
 | [{{ this.name }}]({{ this.url }}) | {{ this.source.size }} | {{ this.htmlminifier.size }} | {{ this.htmlnano.size }} |
--------------------------------------------------------------------------------------------------------------
 {{/each}}
 
 
