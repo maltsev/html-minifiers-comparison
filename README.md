@@ -1,10 +1,5 @@
 # HTML Minifiers Benchmark
 
-[comment]: <> (README.md is generated dynamically from README.template.md. So don't alter it.)
-
-
-
-
 [html-minifier]: https://www.npmjs.com/package/html-minifier
 [htmlnano]: https://www.npmjs.com/package/nano
 
@@ -25,3 +20,5 @@ npm run benchmark
 ```
 
 After that `README.md` will be updated with the new benchmark data.
+
+> README.md is generated dynamically from README.template.md. So don't alter it.
