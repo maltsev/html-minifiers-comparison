@@ -3,6 +3,7 @@ import fs from 'fs';
 import request from 'request-promise';
 import handlebars from 'handlebars';
 import Promise from 'bluebird';
+import _ from 'lodash';
 import urls from './urls';
 
 const minifiers = {
@@ -11,10 +12,12 @@ const minifiers = {
 };
 
 let stats = {};
+let rates = {};
 let promises = [];
 
 
 for (let minifierName of Object.keys(minifiers)) {
+    rates[minifierName] = [];
     fs.mkdirSync('./build/' + minifierName);
 }
 
@@ -40,6 +43,8 @@ urls.forEach(pageUrl => {
                         stats[pageUrl][minifierName] = {
                             size: KB(minifiedHtml.length)
                         };
+                        const minifyRate = (html.length - minifiedHtml.length) / html.length;
+                        rates[minifierName].push(minifyRate);
 
                         const filepath = minifierDir + '/' + pageUrlHostname + '.html';
                         fs.writeFile(filepath, minifiedHtml, error => {
@@ -71,8 +76,14 @@ urls.forEach(pageUrl => {
 
 
 Promise.all(promises).then(() => {
+    for (let minifierName of Object.keys(rates)) {
+        let minifierRates = rates[minifierName];
+        let sumRate = _.sum(minifierRates);
+        rates[minifierName] = Math.round(sumRate * 100 / minifierRates.length);
+    }
+
     const template = fs.readFileSync('./README.template.md', 'utf8');
-    const content = handlebars.compile(template)({ stats });
+    const content = handlebars.compile(template)({ stats, rates });
     fs.writeFileSync('./README.md', content, 'utf8');
 });
 

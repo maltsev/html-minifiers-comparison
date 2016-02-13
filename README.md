@@ -5,9 +5,10 @@
 
 | Website | Source (KB) | [html-minifier] | [htmlnano] |
 |---------|------------:|----------------:|-----------:|
-| [stackoverflow.com](http://stackoverflow.com/) | 239 | 189 | 198 |
+| [stackoverflow.com](http://stackoverflow.com/) | 236 | 186 | 195 |
 | [github.com](http://github.com/) | 24 | 16 | 22 |
 | [en.wikipedia.org](https://en.wikipedia.org/wiki/Main_Page) | 62 | 56 | 59 |
+| **Avg. minify rate** | 0% | **22%** | **11%** |
 
 
 ## Benchmark

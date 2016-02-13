@@ -8,6 +8,7 @@
 {{#each stats}}
 | [{{ this.name }}]({{ this.url }}) | {{ this.source.size }} | {{ this.htmlminifier.size }} | {{ this.htmlnano.size }} |
 {{/each}}
+| **Avg. minify rate** | 0% | **{{ rates.htmlminifier }}%** | **{{ rates.htmlnano }}%** |
 
 
 ## Benchmark
