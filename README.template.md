@@ -1,7 +1,7 @@
 # HTML Minifiers Benchmark
 
 [html-minifier]: https://www.npmjs.com/package/html-minifier
-[htmlnano]: https://www.npmjs.com/package/nano
+[htmlnano]: https://www.npmjs.com/package/htmlnano
 
 | Website | Source (KB) | [html-minifier] | [htmlnano] |
 |---------|------------:|----------------:|-----------:|
