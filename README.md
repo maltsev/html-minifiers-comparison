@@ -5,10 +5,11 @@
 
 | Website | Source (KB) | [html-minifier] | [htmlnano] |
 |---------|------------:|----------------:|-----------:|
-| [stackoverflow.com](http://stackoverflow.com/) | 236 | 186 | 195 |
+| [stackoverflow.com](http://stackoverflow.com/) | 239 | 189 | 198 |
 | [github.com](http://github.com/) | 24 | 16 | 22 |
-| [en.wikipedia.org](https://en.wikipedia.org/wiki/Main_Page) | 62 | 56 | 59 |
-| **Avg. minify rate** | 0% | **22%** | **11%** |
+| [en.wikipedia.org](https://en.wikipedia.org/wiki/Main_Page) | 64 | 58 | 61 |
+| [npmjs.com](https://www.npmjs.com/) | 35 | 27 | 28 |
+| **Avg. minify rate** | 0% | **22%** | **13%** |
 
 
 ## Benchmark
