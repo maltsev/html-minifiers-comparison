@@ -15,8 +15,5 @@
         "browser": false,
         "mocha": false
     },
-    "extends": "eslint:recommended",
-    "ecmaFeatures": {
-        "experimentalObjectRestSpread": false
-    }
+    "extends": "eslint:recommended"
 }
