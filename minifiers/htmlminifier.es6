@@ -20,7 +20,7 @@ const options = {
 };
 
 export default function (html) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         resolve(htmlMinifier.minify(html, options));
     });
 }

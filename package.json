@@ -6,7 +6,7 @@
   "author": "Kirill Maltsev <maltsevkirill@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint minifiers/ index.es6",
+    "lint": "./node_modules/.bin/eslint minifiers/* index.es6",
     "prebenchmark": "rm -rf ./build/ && mkdir ./build/",
     "benchmark": "./node_modules/.bin/babel-node index.es6"
   },
