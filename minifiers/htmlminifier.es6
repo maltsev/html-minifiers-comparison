@@ -9,14 +9,12 @@ const options = {
     collapseBooleanAttributes: true,
     removeAttributeQuotes: true,
     removeRedundantAttributes: true,
-    useShortDoctype: true,
+    useShortDoctype: false,
     removeEmptyAttributes: true,
     removeScriptTypeAttributes: true,
     removeStyleLinkTypeAttributes: true,
-    removeOptionalTags: true,
-    removeEmptyElements: true,
-    minifyJS: true,
-    minifyCSS: true
+    removeOptionalTags: false,
+    removeEmptyElements: false
 };
 
 export default function (html) {
