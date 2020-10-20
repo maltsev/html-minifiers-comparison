@@ -20,7 +20,7 @@
     "bluebird": "^3.7.2",
     "handlebars": "^4.7.6",
     "html-minifier": "^4.0.0",
-    "htmlnano": "^0.2.6",
+    "htmlnano": "^0.2.7",
     "lodash": "^4.17.19",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"
