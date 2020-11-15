@@ -1,14 +1,14 @@
 # HTML Minifiers Benchmark
 
-[html-minifier@4.0.0]: https://www.npmjs.com/package/html-minifier
-[htmlnano@0.2.7]: https://www.npmjs.com/package/htmlnano
+[html-minifier]: https://www.npmjs.com/package/html-minifier
+[htmlnano]: https://www.npmjs.com/package/htmlnano
 
-| Website | Source (KB) | [html-minifier@4.0.0] | [htmlnano@0.2.7] |
+| Website | Source (KB) | [html-minifier] | [htmlnano] |
 |---------|------------:|----------------:|-----------:|
-| [stackoverflow.blog](https://stackoverflow.blog/) | 89 | 82 | 76 |
-| [github.com](https://github.com/) | 215 | 187 | 178 |
-| [en.wikipedia.org](https://en.wikipedia.org/wiki/Main_Page) | 76 | 71 | 71 |
-| [npmjs.com](https://www.npmjs.com/features) | 31 | 28 | 27 |
+| [stackoverflow.blog](https://stackoverflow.blog/) | 78 | 72 | 66 |
+| [github.com](https://github.com/) | 215 | 187 | 177 |
+| [en.wikipedia.org](https://en.wikipedia.org/wiki/Main_Page) | 78 | 73 | 72 |
+| [npmjs.com](https://www.npmjs.com/features) | 29 | 25 | 25 |
 | **Avg. minify rate** | 0% | **10%** | **13%** |
 
 
