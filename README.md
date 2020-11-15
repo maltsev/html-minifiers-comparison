@@ -1,9 +1,9 @@
 # HTML Minifiers Benchmark
 
-[html-minifier]: https://www.npmjs.com/package/html-minifier
-[htmlnano]: https://www.npmjs.com/package/htmlnano
+[html-minifier@4.0.0]: https://www.npmjs.com/package/html-minifier
+[htmlnano@0.2.8]: https://www.npmjs.com/package/htmlnano
 
-| Website | Source (KB) | [html-minifier] | [htmlnano] |
+| Website | Source (KB) | [html-minifier@4.0.0] | [htmlnano@0.2.8] |
 |---------|------------:|----------------:|-----------:|
 | [stackoverflow.blog](https://stackoverflow.blog/) | 78 | 72 | 66 |
 | [github.com](https://github.com/) | 215 | 187 | 177 |
