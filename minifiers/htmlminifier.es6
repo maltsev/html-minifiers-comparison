@@ -22,3 +22,5 @@ export default function (html) {
         resolve(htmlMinifier.minify(html, options));
     });
 }
+
+export const { version } = require('../node_modules/html-minifier/package.json');

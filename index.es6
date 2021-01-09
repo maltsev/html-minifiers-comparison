@@ -7,8 +7,8 @@ import _ from 'lodash';
 import urls from './urls';
 
 const minifiers = {
-    htmlminifier: require('./minifiers/htmlminifier').default,
-    htmlnano: require('./minifiers/htmlnano').default
+    htmlminifier: require('./minifiers/htmlminifier'),
+    htmlnano: require('./minifiers/htmlnano'),
 };
 
 let stats = {};
@@ -37,7 +37,7 @@ urls.forEach(pageUrl => {
 
             for (let minifierName of Object.keys(minifiers)) {
                 let minifierDir = './build/' + minifierName;
-                let minifier = minifiers[minifierName];
+                let minifier = minifiers[minifierName].default;
                 let promise = minifier(html)
                     .then(minifiedHtml => {
                         stats[pageUrl][minifierName] = {
@@ -76,14 +76,16 @@ urls.forEach(pageUrl => {
 
 
 Promise.all(promises).then(() => {
+    const versions = {};
     for (let minifierName of Object.keys(rates)) {
         let minifierRates = rates[minifierName];
         let sumRate = _.sum(minifierRates);
         rates[minifierName] = Math.round(sumRate * 100 / minifierRates.length);
+        versions[minifierName] = minifiers[minifierName].version;
     }
 
     const template = fs.readFileSync('./README.template.md', 'utf8');
-    const content = handlebars.compile(template)({ stats, rates });
+    const content = handlebars.compile(template)({ stats, rates, versions });
     fs.writeFileSync('./README.md', content, 'utf8');
 });
 

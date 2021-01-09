@@ -8,3 +8,5 @@ export default function (html) {
         removeRedundantAttributes: true
     }, safePreset).then(result => result.html);
 }
+
+export const { version } = require('../node_modules/htmlnano/package.json');
