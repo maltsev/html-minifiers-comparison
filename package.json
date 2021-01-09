@@ -28,7 +28,7 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "babel-preset-es2015": "^6.24.1",
-    "eslint": "^7.13.0"
+    "eslint": "^7.17.0"
   },
   "repository": {
     "type": "git",
