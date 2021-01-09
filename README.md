@@ -6,8 +6,8 @@
 | Website | Source (KB) | [html-minifier@4.0.0] | [htmlnano@0.2.8] |
 |---------|------------:|----------------:|-----------:|
 | [stackoverflow.blog](https://stackoverflow.blog/) | 78 | 72 | 66 |
-| [github.com](https://github.com/) | 215 | 187 | 177 |
-| [en.wikipedia.org](https://en.wikipedia.org/wiki/Main_Page) | 78 | 73 | 72 |
+| [github.com](https://github.com/) | 181 | 158 | 148 |
+| [en.wikipedia.org](https://en.wikipedia.org/wiki/Main_Page) | 79 | 73 | 73 |
 | [npmjs.com](https://www.npmjs.com/features) | 29 | 25 | 25 |
 | **Avg. minify rate** | 0% | **10%** | **13%** |
 
