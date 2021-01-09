@@ -1,4 +1,4 @@
-import htmlMinifier from 'html-minifier';
+import htmlMinifierTerser from 'html-minifier-terser';
 import Promise from 'bluebird';
 
 const options = {
@@ -19,8 +19,8 @@ const options = {
 
 export default function (html) {
     return new Promise((resolve) => {
-        resolve(htmlMinifier.minify(html, options));
+        resolve(htmlMinifierTerser.minify(html, options));
     });
 }
 
-export const { version } = require('../node_modules/html-minifier/package.json');
+export const { version } = require('../node_modules/html-minifier-terser/package.json');

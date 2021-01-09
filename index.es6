@@ -7,7 +7,7 @@ import _ from 'lodash';
 import urls from './urls';
 
 const minifiers = {
-    htmlminifier: require('./minifiers/htmlminifier'),
+    htmlminifierterser: require('./minifiers/htmlminifierterser'),
     htmlnano: require('./minifiers/htmlnano'),
 };
 

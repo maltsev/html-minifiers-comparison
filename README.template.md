@@ -1,14 +1,14 @@
 # HTML Minifiers Benchmark
 
-[html-minifier@{{versions.htmlminifier}}]: https://www.npmjs.com/package/html-minifier
+[html-minifier-terser@{{versions.htmlminifierterser}}]: https://www.npmjs.com/package/html-minifier-terser
 [htmlnano@{{versions.htmlnano}}]: https://www.npmjs.com/package/htmlnano
 
-| Website | Source (KB) | [html-minifier@{{versions.htmlminifier}}] | [htmlnano@{{versions.htmlnano}}] |
+| Website | Source (KB) | [html-minifier-terser@{{versions.htmlminifierterser}}] | [htmlnano@{{versions.htmlnano}}] |
 |---------|------------:|----------------:|-----------:|
 {{#each stats}}
-| [{{ this.name }}]({{ this.url }}) | {{ this.source.size }} | {{ this.htmlminifier.size }} | {{ this.htmlnano.size }} |
+| [{{ this.name }}]({{ this.url }}) | {{ this.source.size }} | {{ this.htmlminifierterser.size }} | {{ this.htmlnano.size }} |
 {{/each}}
-| **Avg. minify rate** | 0% | **{{ rates.htmlminifier }}%** | **{{ rates.htmlnano }}%** |
+| **Avg. minify rate** | 0% | **{{ rates.htmlminifierterser }}%** | **{{ rates.htmlnano }}%** |
 
 
 ## Benchmark
