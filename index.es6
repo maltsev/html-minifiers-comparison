@@ -11,9 +11,8 @@ const minifiers = {
     htmlnano: require('./minifiers/htmlnano'),
 };
 
-let stats = {};
-let rates = {};
-let promises = [];
+const stats = {};
+const rates = {};
 
 
 for (let minifierName of Object.keys(minifiers)) {
@@ -22,23 +21,23 @@ for (let minifierName of Object.keys(minifiers)) {
 }
 
 
-urls.forEach(pageUrl => {
+const promises = urls.map(pageUrl => {
     const pageUrlHostname = url.parse(pageUrl).hostname.replace('www.', '');
     stats[pageUrl] = {
         url: pageUrl,
         name: pageUrlHostname
     };
 
-    let promise = fetchPage(pageUrl)
+    return fetchPage(pageUrl)
         .then(html => {
             stats[pageUrl].source = {
                 size: KB(html.length)
             };
 
-            for (let minifierName of Object.keys(minifiers)) {
-                let minifierDir = './build/' + minifierName;
-                let minifier = minifiers[minifierName].default;
-                let promise = minifier(html)
+            const minifierPromises = Object.keys(minifiers).map(minifierName => {
+                const minifierDir = './build/' + minifierName;
+                const minifier = minifiers[minifierName].default;
+                return minifier(html)
                     .then(minifiedHtml => {
                         stats[pageUrl][minifierName] = {
                             size: KB(minifiedHtml.length)
@@ -56,11 +55,9 @@ urls.forEach(pageUrl => {
                     .catch(error => {
                         console.error(error);
                     });
+            });
 
-                promises.push(promise);
-            }
-
-            return html;
+            return Promise.all(minifierPromises).then(() => html);
         })
         .then(html => {
             const filepath = './build/' + pageUrlHostname + '.html';
@@ -70,8 +67,6 @@ urls.forEach(pageUrl => {
                 }
             });
         });
-
-    promises.push(promise);
 });
 
 
