@@ -5,11 +5,12 @@
 
 | Website | Source (KB) | [html-minifier-terser@5.1.1] | [htmlnano@1.0.0] |
 |---------|------------:|----------------:|-----------:|
-| [stackoverflow.blog](https://stackoverflow.blog/) | 95 | 87 | 82 |
-| [github.com](https://github.com/) | 210 | 183 | 171 |
-| [en.wikipedia.org](https://en.wikipedia.org/wiki/Main_Page) | 78 | 72 | 72 |
+| [stackoverflow.blog](https://stackoverflow.blog/) | 97 | 89 | 84 |
+| [github.com](https://github.com/) | 209 | 181 | 169 |
+| [en.wikipedia.org](https://en.wikipedia.org/wiki/Main_Page) | 79 | 74 | 73 |
 | [npmjs.com](https://www.npmjs.com/features) | 41 | 38 | 36 |
-| **Avg. minify rate** | 0% | **9%** | **13%** |
+| [tc39.es](https://tc39.es/ecma262/) | 5894 | 5371 | 5365 |
+| **Avg. minify rate** | 0% | **9%** | **12%** |
 
 
 ## Benchmark
