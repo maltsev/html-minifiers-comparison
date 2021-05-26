@@ -59,12 +59,9 @@ const promises = urls.map(pageUrl => {
         })
         .then(html => {
             const filepath = './build/' + pageUrlHostname + '.html';
-            return fs.writeFile(filepath, html, error => {
-                if (error) {
-                    console.error(error);
-                }
-            });
-        });
+            return fsPromise.writeFile(filepath, html);
+        })
+        .catch(console.error);
 });
 
 
