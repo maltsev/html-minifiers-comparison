@@ -1,9 +1,8 @@
 import url from 'url';
-import fs from 'fs';
-import request from 'request-promise';
+import fs, { promises as fsPromise } from 'fs';
+import fetch from 'node-fetch';
 import handlebars from 'handlebars';
 import Promise from 'bluebird';
-import _ from 'lodash';
 import urls from './urls';
 
 const minifiers = {
@@ -45,12 +44,11 @@ const promises = urls.map(pageUrl => {
                         const minifyRate = (html.length - minifiedHtml.length) / html.length;
                         rates[minifierName].push(minifyRate);
 
+                        return minifiedHtml;
+                    })
+                    .then(minifiedHtml => {
                         const filepath = minifierDir + '/' + pageUrlHostname + '.html';
-                        fs.writeFile(filepath, minifiedHtml, error => {
-                            if (error) {
-                                console.error(error);
-                            }
-                        });
+                        fsPromise.writeFile(filepath, minifiedHtml);
                     })
                     .catch(error => {
                         console.error(error);
@@ -61,12 +59,9 @@ const promises = urls.map(pageUrl => {
         })
         .then(html => {
             const filepath = './build/' + pageUrlHostname + '.html';
-            fs.writeFile(filepath, html, error => {
-                if (error) {
-                    console.error(error);
-                }
-            });
-        });
+            return fsPromise.writeFile(filepath, html);
+        })
+        .catch(console.error);
 });
 
 
@@ -74,22 +69,24 @@ Promise.all(promises).then(() => {
     const versions = {};
     for (let minifierName of Object.keys(rates)) {
         let minifierRates = rates[minifierName];
-        let sumRate = _.sum(minifierRates);
+        let sumRate = minifierRates.reduce((prev, current) => prev + current);
         rates[minifierName] = Math.round(sumRate * 100 / minifierRates.length);
         versions[minifierName] = minifiers[minifierName].version;
     }
 
-    const template = fs.readFileSync('./README.template.md', 'utf8');
-    const content = handlebars.compile(template)({ stats, rates, versions });
-    fs.writeFileSync('./README.md', content, 'utf8');
+    return fsPromise.readFile('./README.template.md', 'utf8').then(template => {
+        return handlebars.compile(template)({ stats, rates, versions });
+    });
+}).then(content => {
+    return fsPromise.writeFile('./README.md', content, 'utf8');
 });
 
 
 function fetchPage(pageUrl) {
-    return request(pageUrl)
-        .then(content => {
+    return fetch(pageUrl)
+        .then(response => {
             console.log(pageUrl + ' fetched');
-            return content;
+            return response.text();
         })
         .catch(fatalError);
 }
