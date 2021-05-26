@@ -3,7 +3,6 @@ import fs from 'fs';
 import request from 'request-promise';
 import handlebars from 'handlebars';
 import Promise from 'bluebird';
-import _ from 'lodash';
 import urls from './urls';
 
 const minifiers = {
@@ -74,7 +73,7 @@ Promise.all(promises).then(() => {
     const versions = {};
     for (let minifierName of Object.keys(rates)) {
         let minifierRates = rates[minifierName];
-        let sumRate = _.sum(minifierRates);
+        let sumRate = minifierRates.reduce((prev, current) => prev + current);
         rates[minifierName] = Math.round(sumRate * 100 / minifierRates.length);
         versions[minifierName] = minifiers[minifierName].version;
     }

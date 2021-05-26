@@ -21,7 +21,6 @@
     "handlebars": "^4.7.7",
     "html-minifier-terser": "^5.1.1",
     "htmlnano": "^1.0.0",
-    "lodash": "^4.17.21",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"
   },
